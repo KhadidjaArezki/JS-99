@@ -1,6 +1,6 @@
 # JS-99
 
-These are my Javascript solutions for the famous 99-problems that has been translated to many programming languages.
+These are my Javascript solutions for the famous 99-problems that have been translated to many programming languages.
 
 ## Warning
 
