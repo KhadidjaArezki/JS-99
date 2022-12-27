@@ -145,14 +145,17 @@ function compress(xs) {
  * @param {any[]} xs
  * @returns {any[][]}
  * @example pack([]) = []
- * @example pack(['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']) = [["a","a","a","a"],["b"],["c","c"],["a","a"],["d"],["e","e","e","e"]]
+ * @example pack(['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e'])
+ *                = [["a","a","a","a"],["b"],["c","c"],["a","a"],["d"],["e","e","e","e"]]
  * @example pack(["a", "b", "c", "d"]) = [["a"], ["b"], ["c"], ["d"]]
  */
 function pack(xs) {
   if (xs.length === 0) return []
   if (xs.length === 1) return [xs]
+
   let [y, z, ...zs] = xs
   if (y !== z) return [[y], ...pack([z, ...zs])]
+
   let different = xs.find((v) => v !== z)
   if (different !== undefined)
     return [
