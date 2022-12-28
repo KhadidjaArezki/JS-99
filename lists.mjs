@@ -149,7 +149,7 @@ function compress(xs) {
  *                = [["a","a","a","a"],["b"],["c","c"],["a","a"],["d"],["e","e","e","e"]]
  * @example pack(["a", "b", "c", "d"]) = [["a"], ["b"], ["c"], ["d"]]
  */
-function pack(xs) {
+export function pack(xs) {
   if (xs.length === 0) return []
   if (xs.length === 1) return [xs]
 
@@ -157,12 +157,12 @@ function pack(xs) {
   if (y !== z) return [[y], ...pack([z, ...zs])]
 
   let different = xs.find((v) => v !== z)
-  if (different !== undefined)
-    return [
-      [...xs.slice(0, xs.indexOf(different))],
-      ...pack(xs.slice(xs.indexOf(different), xs.length)),
-    ]
-  return [xs]
+  if (different === undefined) return [xs]
+
+  return [
+    [...xs.slice(0, xs.indexOf(different))],
+    ...pack(xs.slice(xs.indexOf(different), xs.length)),
+  ]
 }
 
 /**
