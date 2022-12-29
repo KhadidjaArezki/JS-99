@@ -143,6 +143,48 @@ function slice(xs, start, end) {
   return [y, ...slice(ys, start, end - 1)]
 }
 
+/**
+ *
+ * @param {any[]} xs
+ * @param {Number} n
+ * @returns {any[]} xs rotated n places to the left
+ * @example rotate([], 2) = []
+ * @example rotate(["a"], 1) = ["a"]
+ * @example rotate(["a"], 2) = ["a"]
+ * @example rotate(["a", "b", "c"], 0) = ["a", "b", "c"]
+ * @example rotate(["a", "b", "c"], 1) = ["b", "c", "a"]
+ * @example rotate(["a", "b", "c"], (-1)) = ["c", "a", "b"]
+ * @example rotate(['a','b','c','d','e','f','g','h'], 3) = ['d','e','f','g','h','a','b','c']
+ * @example rotate(['a','b','c','d','e','f','g','h'], (-2)) = ['g','h','a','b','c','d','e','f']
+ */
+function rotate(xs, n) {
+  if (xs.length === 0) return []
+  if (n === 0) return xs
+  let headList = n > 0 ? take(xs, n) : take(xs, xs.length - Math.abs(n))
+  let tailList = n > 0 ? drop(xs, n) : drop(xs, xs.length - Math.abs(n))
+  return [...tailList, ...headList]
+}
+
+/**
+ *
+ * @param {any[]} xs
+ * @param {Number} k
+ * @returns {any[]}
+ * @example removeKth([], 0) = []
+ * @example removeKth(["a", "b", "c"], 0) = ["b", "c"]
+ * @example removeKth(["a", "b", "c"], 1) = ["a", "c"]
+ * @example removeKth(["a", "b", "c"], 2) = ["a", "b"]
+ * @example removeKth(["a", "b", "c"], 3) = ["a", "b", "c"]
+ */
+function removeKth(xs, k) {
+  if (xs.length === 0) return []
+  let [y, ...ys] = xs
+  if (k === 0) return ys
+  return [y, ...removeKth(ys, k - 1)]
+}
+
+/****************** Helpers ***********************/
+
 function take(xs, n) {
   if (xs.length === 0 || n === 0) return []
   let [y, ...ys] = xs

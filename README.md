@@ -1,6 +1,6 @@
 # JS-99
 
-These are my Javascript solutions for the famous 99-problems that have been translated to many programming languages.
+These are my Javascript solutions for the famous [99-problems](https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems) that have been translated to many programming languages.
 
 ## Warning
 
@@ -11,4 +11,4 @@ The purpose of this problem collection is to give you the opportunity to practic
 
 Every function that you write should begin with a comment that describes the function in a declarative statement. Do not describe procedurally, what the function does, but write down a logical statement which includes the arguments of the function. You should also indicate the intended data types of the arguments and the allowed flow patterns.
 
-""" - Quoted from the Ninety Nine Prolog Problems website -
+""" - Quoted from the [Ninety Nine Prolog Problems](https://web.archive.org/web/20170324220754/https://sites.google.com/site/prologsite/prolog-problems) website -
